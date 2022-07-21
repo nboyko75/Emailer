@@ -1,0 +1,37 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+client/dist
+client/tmp
+
+# Node
+client/node_modules
+npm-debug.log
+yarn-error.log
+
+# Visual Studio Code
+client/.vscode/*
+
+# Miscellaneous
+client/.angular/cache
+client/.sass-cache/
+
+# System files
+client/Thumbs.db
+
+# Build results
+server/[Dd]ebug/
+server/[Dd]ebugPublic/
+server/[Rr]elease/
+server/[Rr]eleases/
+server/x64/
+server/x86/
+server/build/
+server/bld/
+server/bin/
+server/Bin/
+server/obj/
+server/Obj/
+
+# Visual Studio 2015 cache/options directory
+server/.vs/

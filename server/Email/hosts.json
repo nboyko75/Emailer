@@ -1,0 +1,68 @@
+[
+  {
+    "Name": "nick_gmail",
+    "Host": "gmail.com",
+    "Username": "nboyko75",
+    "Password": "sxcvqkijksiktdbu",
+    "ImapServer": "imap.gmail.com",
+    "SmtpServer": "smtp.gmail.com",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  },
+  {
+    "Name": "nick_ukrnet",
+    "Host": "ukr.net",
+    "Username": "nboyko75",
+    "Password": "xsw2#EDC",
+    "ImapServer": "imap.ukr.net",
+    "SmtpServer": "smtp.ukr.net",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  },
+  {
+    "Name": "nick_yahoo",
+    "Host": "yahoo.com",
+    "Username": "mykola.boyko",
+    "Password": "xsw2#EDC",
+    "ImapServer": "imap.yahoo.com",
+    "SmtpServer": "smtp.yahoo.com",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  },
+  {
+    "Name": "luda_gmail",
+    "Host": "gmail.com",
+    "Username": "ludmilka.ul",
+    "Password": "Ludm1lka",
+    "ImapServer": "imap.gmail.com",
+    "SmtpServer": "smtp.gmail.com",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  },
+  {
+    "Name": "julia_ukrnet",
+    "Host": "ukr.net",
+    "Username": "SIJulia",
+    "Password": "loveilove",
+    "ImapServer": "imap.ukr.net",
+    "SmtpServer": "smtp.ukr.net",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  },
+  {
+    "Name": "liza_gmail",
+    "Host": "gmail.com",
+    "Username": "Lizonka1803",
+    "Password": "66/MyU92",
+    "ImapServer": "imap.gmail.com",
+    "SmtpServer": "smtp.gmail.com",
+    "ImapPort": 993,
+    "SmtpPort": 587,
+    "Secure": true
+  }
+]
