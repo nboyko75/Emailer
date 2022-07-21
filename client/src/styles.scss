@@ -1,0 +1,38 @@
+@use "styles_vars" as v;
+
+.font-weight-bold {
+  font-weight: bold!important;
+}
+
+.vscroll {
+  overflow-y: scroll;
+}
+
+.econtainer {
+  width: 100%;
+  padding-right: .75rem;
+  padding-left: .75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.eheader {
+  height: 300px;
+}
+
+.esection {
+  height: calc(100vh - (300px + 40px));
+}
+
+.efooter {
+  height: 30px;
+}
+
+.table {
+  --bs-table-active-color: v.$table-active-color;
+  --bs-table-active-bg: v.$table-active-bg;
+}
+
+.table-striped > tbody > tr.table-active {
+  background-color: v.$table-active-bg;
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "nick_gmail",
+    "host": "gmail.com",
+    "port": 993,
+    "secure": true,
+    "userName": "nboyko75",
+    "password": "Bmw4063355"
+  },
+  {
+    "name": "nick_ukrnet",
+    "host": "ukr.net",
+    "port": 993,
+    "secure": true,
+    "userName": "nboyko75",
+    "password": "xsw2#EDC"
+  },
+  {
+    "name": "nick_yahoo",
+    "host": "yahoo.com",
+    "port": 993,
+    "secure": true,
+    "userName": "mykola.boyko",
+    "password": "xsw2#EDC"
+  },
+  {
+    "name": "luda_gmail",
+    "host": "gmail.com",
+    "port": 993,
+    "secure": true,
+    "userName": "ludmilka.ul",
+    "password": "Ludm1lka"
+  },
+  {
+    "name": "julia_ukrnet",
+    "host": "ukr.net",
+    "port": 993,
+    "secure": true,
+    "userName": "SIJulia",
+    "password": "loveilove"
+  },
+  {
+    "name": "liza_gmail",
+    "host": "gmail.com",
+    "port": 993,
+    "secure": true,
+    "userName": "Lizonka1803",
+    "password": "66/MyU92"
+  }
+]

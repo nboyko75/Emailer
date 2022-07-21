@@ -1,0 +1,51 @@
+<div class="econtainer">
+  <div class="eheader">
+    <div class="row mt-2">
+      <div style="width:300px;"></div>
+      <div style="width:300px;"></div>
+      <div style="width:550px;">
+        <select name="hosts" [(ngModel)]="selectedHost" class="form-control">
+          <option *ngFor="let host of hosts" [value]="host.email">
+            {{ host.email }}
+          </option>
+        </select>
+      </div>
+      <div style="width:250px;">
+        <button class="btn btn-primary" (click)="receive()">Receive</button>
+        <button class="btn btn-primary ms-2" (click)="receiveAll()">Receive all</button>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="row text-center font-weight-bold mt-2">
+          <th style="width:300px;">From</th>
+          <th style="width:300px;">To</th>
+          <th style="width:550px;">Subject</th>
+          <th style="width:250px;"></th>
+        </tr>
+      </thead>
+      <tbody class="row vscroll" style="height:200px;">
+        <tr *ngFor="let message of messages; let i = index"
+          [class.table-active]="i == currentRowIndex"
+          (click)="onRowClick(i)">
+          <td class="text-center" style="width:300px;">{{ message.from }}</td>
+          <td class="text-center" style="width:300px;">{{ message.to }}</td>
+          <td style="width:550px;">{{ message.subject }}</td>
+          <td style="width:250px;"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row esection vscroll">
+    <div [innerHTML]="currentMessage.htmlBody"></div>
+  </div>
+  <div class="efooter">
+
+  </div>
+  <ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple">
+  </ngx-spinner>
+</div>
