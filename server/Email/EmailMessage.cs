@@ -1,7 +1,7 @@
 ﻿using MailKit;
 using MimeKit;
 
-namespace netServer
+namespace MailServer
 {
     public class EmailMessage
     {

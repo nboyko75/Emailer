@@ -6,4 +6,7 @@ export class Message {
   cc: string = "";
   subject: string = "";
   htmlBody: string = "";
+  receiveDate?: Date;
+  seen: boolean = true;
+  isSelected: boolean = false;
 }

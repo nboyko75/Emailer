@@ -1,6 +1,7 @@
-﻿using System;
+﻿using MailKit;
+using System;
 
-namespace netServer.Dtos
+namespace MailServer.Dtos
 {
     public class EmailDto
     {
@@ -11,6 +12,9 @@ namespace netServer.Dtos
         public string CC { get; set; }
         public string Subject { get; set; }
         public string HtmlBody { get; set; }
+        public DateTime ReceiveDate { get; set; }
+        public bool Seen { get; set; }
+        public bool IsSelected { get; set; } = false;
 
         public static EmailDto FromMessage(EmailMessage msg) 
         {
@@ -22,6 +26,8 @@ namespace netServer.Dtos
             res.CC = Emailer.AddrListToStr(msg.Message.From, true);
             res.Subject = msg.Message.Subject;
             res.HtmlBody = msg.Message.HtmlBody;
+            res.ReceiveDate = msg.Message.Date.LocalDateTime;
+            res.Seen = msg.Flags.Value.HasFlag(MessageFlags.Seen);
             return res;
         }
     }

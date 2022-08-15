@@ -10,3 +10,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ng add ngx-bootstrap
 npm i ngx-spinner@13.1.1
+ng add @angular/material
+
+npm install @ngrx/store@13.2.0
+npm install @ngrx/effects@13.2.0
+npm install font-awesome --save

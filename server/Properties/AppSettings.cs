@@ -1,4 +1,4 @@
-﻿namespace netServer.Properties
+﻿namespace MailServer.Properties
 {
     public class AppSettings
     {

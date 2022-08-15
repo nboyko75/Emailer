@@ -1,5 +1,5 @@
 ﻿using MailKit;
-using netServer.Properties;
+using MailServer.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace netServer
+namespace MailServer
 {
     public class Emailer
     {
@@ -65,6 +65,8 @@ namespace netServer
 
         private async Task connectAndRetrieve(EmailAcct account, bool isOutbox)
         {
+            if (account == null) return;
+
             try
             {
                 _ReceivedMsgCount = 0;
@@ -98,25 +100,35 @@ namespace netServer
             }
         }
 
-        public void DeleteMessage(EmailMessage msg, bool isOutbox)
+        public async Task DeleteMessages(EmailMessage[] msgs, bool isOutbox)
         {
             string _ErrorMessage = string.Empty;
+            string currAccountName = string.Empty;
             try
             {
                 var client = new MailKit.Net.Imap.ImapClient();
                 var cancel = new CancellationTokenSource();
+                IMailFolder folder = null;
                 client.Timeout = Timeout;
-                client.Connect(msg.Account.ImapServer, msg.Account.ImapPort, msg.Account.Secure, cancel.Token);
-                client.Authenticate(msg.Account.Username, msg.Account.Password, cancel.Token);
-                var folder = isOutbox ? client.GetFolder(SpecialFolder.Sent) : client.Inbox;
-                folder.Open(FolderAccess.ReadWrite, cancel.Token);
-                folder.AddFlags(msg.Uid, MessageFlags.Deleted, true);
-                client.Inbox.Expunge(new UniqueId[] { msg.Uid });
+                foreach (EmailMessage msg in msgs) 
+                {
+                    if (msg.Account.Name != currAccountName) 
+                    {
+                        if (currAccountName.Length > 0) client.Disconnect(true, cancel.Token);
+                        currAccountName = msg.Account.Name;
+                        await client.ConnectAsync(msg.Account.ImapServer, msg.Account.ImapPort, msg.Account.Secure, cancel.Token);
+                        await client.AuthenticateAsync(msg.Account.Username, msg.Account.Password, cancel.Token);
+                        folder = isOutbox ? client.GetFolder(SpecialFolder.Sent) : client.Inbox;
+                        await folder.OpenAsync(FolderAccess.ReadWrite, cancel.Token);
+                    }
+                    await folder.AddFlagsAsync(msg.Uid, MessageFlags.Deleted, true);
+                    await client.Inbox.ExpungeAsync(new UniqueId[] { msg.Uid });
+                }
                 client.Disconnect(true, cancel.Token);
             }
             catch (Exception ex)
             {
-                SetError(msg.Account.Name, ex.Message);
+                SetError(currAccountName, ex.Message);
             }
         }
 

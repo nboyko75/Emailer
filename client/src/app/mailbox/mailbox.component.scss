@@ -1,0 +1,19 @@
+.econtainer {
+  width: 100%;
+  padding-right: .75rem;
+  padding-left: .75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.eheader {
+  height: 300px;
+}
+
+.esection {
+  height: calc(100vh - (300px + 100px));
+}
+
+.efooter {
+  height: 30px;
+}

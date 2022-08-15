@@ -1,4 +1,4 @@
-﻿namespace netServer
+﻿namespace MailServer
 {
     public class EmailAcct
     {

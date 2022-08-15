@@ -1,0 +1,39 @@
+<div class="econtainer">
+  <div class="eheader">
+    <table class="table table-striped">
+      <thead>
+        <tr class="row text-center font-weight-bold mt-2">
+          <th style="width:40px;"></th>
+          <th style="width:250px;">From</th>
+          <th style="width:250px;">To</th>
+          <th style="width:500px;">Subject</th>
+          <th style="width:130px;">Date</th>
+        </tr>
+      </thead>
+      <tbody class="row vscroll" style="height:200px;">
+        <tr *ngFor="let message of messages; let i = index" [class.table-active]="i == currentRowIndex"
+          [class.font-weight-bold]="!message.seen" (click)="onRowClick(i)">
+          <td class="text-center">
+            <input type="checkbox" (change)="onSelChange(message)">
+          </td>
+          <td class="text-center" style="width:250px;">{{ message.from }}</td>
+          <td class="text-center" style="width:250px;">{{ message.to }}</td>
+          <td style="width:500px;">{{ message.subject }}</td>
+          <td class="text-center" style="width:130px;">{{ message.receiveDate | date:'dd.MM.yyyy h:mm' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row esection vscroll">
+    <div [innerHTML]="currentMessage.htmlBody"></div>
+  </div>
+  <div class="efooter">
+
+  </div>
+  <ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple">
+  </ngx-spinner>
+</div>
