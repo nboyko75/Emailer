@@ -1,6 +1,6 @@
 <div class="row mt-2">
   <div style="width:50px;">
-    <button class="btn btn-danger" (click)="delete()">
+    <button class="btn btn-danger" (click)="delete()" [disabled]="!hasSelected">
       <i class="fa fa-trash"></i>
     </button>
   </div>

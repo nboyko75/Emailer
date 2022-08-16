@@ -6,14 +6,10 @@
   margin-left: auto;
 }
 
-.eheader {
-  height: 300px;
-}
-
 .esection {
-  height: calc(100vh - (300px + 100px));
+  height: calc(100vh - 70px);
 }
 
-.efooter {
-  height: 30px;
+.etable {
+  height: calc(100vh - 150px);
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HostAccount } from '../_models/hostAccount';
 import { EmailService } from '../_services/email-service';
@@ -11,11 +11,17 @@ import { EmailService } from '../_services/email-service';
 export class ToolbarComponent implements OnInit {
   hosts: HostAccount[] = [];
   selectedHost: string = "";
+  hasSelected: boolean = false;
   
   constructor(private emailService: EmailService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.loadHosts();
+    this.emailService.messagesSelected.subscribe({
+      next: (hasSelected: boolean) => {
+        this.hasSelected = hasSelected;
+      }
+    });
   }
 
   loadHosts() {
@@ -51,6 +57,7 @@ export class ToolbarComponent implements OnInit {
       this.emailService.delete().subscribe({
         next: () => {
           this.spinner.hide();
+          this.hasSelected = false;
         },
         error: errmsg => {
           alert(errmsg.error || errmsg.message);

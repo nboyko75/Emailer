@@ -12,6 +12,7 @@ import { SelParams } from "./selParams";
 export class EmailService {
   baseUrl = environment.imapUrl;
   messagesLoaded = new EventEmitter<Message[]>();
+  messagesSelected = new EventEmitter<boolean>();
 
   private hosts: HostAccount[] = [];
   private messages: Message[] = [];
@@ -81,7 +82,10 @@ export class EmailService {
 
   selectMessage(msg: Message) {
     const selMsg = this.messages.find(m => m.id == msg.id);
-    if (selMsg != null) selMsg.isSelected = msg.isSelected;
+    if (selMsg != null) {
+      selMsg.isSelected = msg.isSelected;
+      this.messagesSelected.emit(this.messages.find(m => m.isSelected) != null);
+    }
   }
 
   delete() {
